@@ -9,9 +9,10 @@ using SeleniumExamples;
 
 List<string> drivers=new List<string>();
 drivers.Add("Chrome");
+AmazonPageTest am = new AmazonPageTest();
 foreach (var driver in drivers)
 {
-    AmazonPageTest am=new AmazonPageTest();
+
 
     switch (driver)
     {
@@ -20,18 +21,23 @@ foreach (var driver in drivers)
         case "Chrome":
             am.InitializeChromeDriver(); break;
 
-    }
 
+    }
     try
     {
-        am.TitleTest();
-        
+       /* am.TitleTest();
+
         am.LogoClickTest();
         Thread.Sleep(10000);
         am.SearchProductTest();
         Thread.Sleep(10000);
-        am.SearchProductTest();
+
         am.ReloadHomePage();
+       
+        am.TodaysDealTest();
+        am.SignInAccListTest();
+        am.SearchandFilterOhoneByBrandTest();*/
+       am.SearchandFilterOhoneByBrandTest(); 
     }
     catch (AssertionException e)
     {
@@ -40,10 +46,10 @@ foreach (var driver in drivers)
     catch (NoSuchElementException nse)
     {
         Console.WriteLine("nse");
-           }
+    }
     am.Destruct();
-}
 
+}
 
 
 
